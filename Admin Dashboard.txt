@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root { --ring: #006A4E;
+        --input: #E2E8F0;
+        --primary-foreground: #FFFFFF;
+        --border: #E2E8F0;
+        --radius: 0.25rem;
+        --muted-foreground: #64748B;
+        --muted: #F8FAFC;
+        --secondary: #0F172A;
+        --background: #FFFFFF;
+        --primary: #006A4E;
+        --secondary-foreground: #FFFFFF;
+        --card: #FFFFFF;
+        --tertiary: #006A4E;
+        --foreground: #0F172A; }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-muted flex flex-col relative font-sans">
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-secondary text-secondary-foreground flex flex-col shrink-0">
+      <div class="p-6 flex items-center gap-3 border-b border-white/10">
+        <div class="bg-primary p-1.5 rounded">
+          <iconify-icon icon="lucide:sun" class="text-xl text-white"></iconify-icon>
+        </div>
+        <span class="font-heading font-bold text-lg tracking-tight">TRC <span class="text-primary">ADMIN</span></span>
+      </div>
+      
+      <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+        <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-3 mb-2">Main Menu</div>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 bg-primary text-white rounded-md text-sm font-medium">
+          <iconify-icon icon="lucide:layout-dashboard" class="text-lg"></iconify-icon>
+          Dashboard
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:file-text" class="text-lg"></iconify-icon>
+          News Articles
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:layers" class="text-lg"></iconify-icon>
+          Categories
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:tag" class="text-lg"></iconify-icon>
+          Tags
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:image" class="text-lg"></iconify-icon>
+          Media Library
+        </a>
+        
+        <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-3 mb-2 mt-6">Engagement</div>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:bar-chart-2" class="text-lg"></iconify-icon>
+          Polls & Surveys
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:mail" class="text-lg"></iconify-icon>
+          Newsletters
+        </a>
+        
+        <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-3 mb-2 mt-6">System</div>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:users" class="text-lg"></iconify-icon>
+          User Roles
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-md text-sm font-medium transition-colors">
+          <iconify-icon icon="lucide:settings" class="text-lg"></iconify-icon>
+          Settings
+        </a>
+      </nav>
+      
+      <div class="p-4 border-t border-white/10">
+        <div class="flex items-center gap-3 px-3 py-3 bg-white/5 rounded-lg border border-white/10">
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" class="w-8 h-8 rounded-full" alt="Admin">
+          <div class="overflow-hidden">
+            <p class="text-xs font-bold truncate">Sayedul Islam</p>
+            <p class="text-[10px] text-muted-foreground truncate">Super Admin</p>
+          </div>
+          <button class="ml-auto text-muted-foreground hover:text-white transition-colors">
+            <iconify-icon icon="lucide:log-out"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+      <!-- Header -->
+      <header class="h-16 bg-white border-b border-border flex items-center justify-between px-8 shrink-0">
+        <div class="flex items-center gap-4">
+          <h2 class="text-lg font-heading font-bold text-secondary">Dashboard Overview</h2>
+          <span class="text-xs text-muted-foreground px-2 py-0.5 bg-muted rounded">v2.4.0 Stable</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="relative group">
+            <button class="p-2 hover:bg-muted rounded relative">
+              <iconify-icon icon="lucide:bell" class="text-xl text-secondary"></iconify-icon>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-destructive rounded-full border-2 border-white"></span>
+            </button>
+          </div>
+          <div class="h-8 w-px bg-border"></div>
+          <a href="#" target="_blank" class="flex items-center gap-2 text-xs font-bold text-primary hover:underline">
+            Visit Website
+            <iconify-icon icon="lucide:external-link"></iconify-icon>
+          </a>
+        </div>
+      </header>
+
+      <!-- Scrollable Area -->
+      <div class="flex-1 overflow-y-auto p-8 space-y-8">
+        
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-card p-6 rounded-xl border border-border shadow-sm group hover:border-primary transition-colors">
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-2 bg-primary/10 rounded-lg text-primary">
+                <iconify-icon icon="lucide:users" class="text-2xl"></iconify-icon>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                <iconify-icon icon="lucide:arrow-up-right"></iconify-icon>
+                12.5%
+              </span>
+            </div>
+            <p class="text-sm font-medium text-muted-foreground">Monthly Visitors</p>
+            <h3 class="text-2xl font-heading font-bold text-secondary">1.2M+</h3>
+          </div>
+          
+          <div class="bg-card p-6 rounded-xl border border-border shadow-sm group hover:border-primary transition-colors">
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-2 bg-blue-100 rounded-lg text-blue-600">
+                <iconify-icon icon="lucide:file-text" class="text-2xl"></iconify-icon>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                <iconify-icon icon="lucide:plus"></iconify-icon>
+                48
+              </span>
+            </div>
+            <p class="text-sm font-medium text-muted-foreground">Total Articles</p>
+            <h3 class="text-2xl font-heading font-bold text-secondary">29,452</h3>
+          </div>
+          
+          <div class="bg-card p-6 rounded-xl border border-border shadow-sm group hover:border-primary transition-colors">
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-2 bg-amber-100 rounded-lg text-amber-600">
+                <iconify-icon icon="lucide:activity" class="text-2xl"></iconify-icon>
+              </div>
+              <span class="text-xs font-bold text-amber-600 flex items-center gap-1">
+                Active
+              </span>
+            </div>
+            <p class="text-sm font-medium text-muted-foreground">Server Load</p>
+            <h3 class="text-2xl font-heading font-bold text-secondary">24%</h3>
+          </div>
+          
+          <div class="bg-card p-6 rounded-xl border border-border shadow-sm group hover:border-primary transition-colors">
+            <div class="flex justify-between items-start mb-4">
+              <div class="p-2 bg-purple-100 rounded-lg text-purple-600">
+                <iconify-icon icon="lucide:credit-card" class="text-2xl"></iconify-icon>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                <iconify-icon icon="lucide:arrow-up-right"></iconify-icon>
+                8.2%
+              </span>
+            </div>
+            <p class="text-sm font-medium text-muted-foreground">Ad Revenue (MTD)</p>
+            <h3 class="text-2xl font-heading font-bold text-secondary">$4,250</h3>
+          </div>
+        </div>
+
+        <!-- Charts & Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Traffic Chart -->
+          <div class="lg:col-span-8 bg-card rounded-xl border border-border shadow-sm p-6">
+            <div class="flex items-center justify-between mb-8">
+              <div>
+                <h3 class="text-lg font-heading font-bold text-secondary">Traffic Trends</h3>
+                <p class="text-xs text-muted-foreground">Daily visitors over the last 30 days</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="px-3 py-1.5 bg-muted rounded text-xs font-bold text-secondary">Daily</button>
+                <button class="px-3 py-1.5 hover:bg-muted rounded text-xs font-bold text-muted-foreground">Weekly</button>
+              </div>
+            </div>
+            <div class="h-64 overflow-hidden">
+              <canvas id="trafficChart" height="160"></canvas>
+              <script>
+                new Chart(document.getElementById('trafficChart'), {
+                  type: 'line',
+                  data: {
+                    labels: ['May 1', 'May 5', 'May 10', 'May 15', 'May 20', 'May 25', 'May 30'],
+                    datasets: [{
+                      label: 'Visitors',
+                      data: [45000, 52000, 48000, 61000, 55000, 72000, 68000],
+                      borderColor: '#006A4E',
+                      backgroundColor: 'rgba(0, 106, 78, 0.1)',
+                      fill: true,
+                      tension: 0.4,
+                      borderWidth: 3,
+                      pointRadius: 0,
+                      pointHoverRadius: 6
+                    }]
+                  },
+                  options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                      y: { beginAtZero: true, grid: { color: '#E2E8F0', drawBorder: false } },
+                      x: { grid: { display: false } }
+                    }
+                  }
+                });
+              </script>
+            </div>
+          </div>
+
+          <!-- Site Health -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="bg-card rounded-xl border border-border shadow-sm p-6">
+              <h3 class="text-lg font-heading font-bold text-secondary mb-6">Site Status</h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-muted-foreground">PHP Version</span>
+                  <span class="font-bold text-secondary">8.2.12</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-muted-foreground">Node.js</span>
+                  <span class="font-bold text-secondary">v20.10.0</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-muted-foreground">Database</span>
+                  <span class="font-bold text-secondary">PostgreSQL 15</span>
+                </div>
+                <div class="h-px bg-border my-2"></div>
+                <div class="space-y-2">
+                  <div class="flex justify-between text-xs font-bold mb-1">
+                    <span class="text-muted-foreground uppercase">Storage (2TB)</span>
+                    <span class="text-secondary">82%</span>
+                  </div>
+                  <div class="w-full h-2 bg-muted rounded-full overflow-hidden">
+                    <div class="h-full bg-primary w-4/5"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between text-xs font-bold mb-1">
+                    <span class="text-muted-foreground uppercase">Memory (32GB)</span>
+                    <span class="text-secondary">45%</span>
+                  </div>
+                  <div class="w-full h-2 bg-muted rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-500 w-[45%]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-primary text-white p-6 rounded-xl shadow-lg relative overflow-hidden">
+              <h4 class="text-lg font-heading font-bold mb-2">Need Support?</h4>
+              <p class="text-xs text-white/80 mb-4 leading-relaxed">Contact our technical team for immediate assistance with server or CMS issues.</p>
+              <button class="w-full bg-white text-primary py-2.5 rounded font-bold text-sm hover:bg-white/90 transition-colors">
+                Open Support Ticket
+              </button>
+              <iconify-icon icon="lucide:help-circle" class="absolute -right-4 -bottom-4 text-8xl text-white/10"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Articles Table -->
+        <div class="bg-card rounded-xl border border-border shadow-sm overflow-hidden">
+          <div class="p-6 border-b border-border flex items-center justify-between">
+            <h3 class="text-lg font-heading font-bold text-secondary">Recently Published</h3>
+            <button class="text-xs font-bold text-primary hover:underline">View All Articles</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-muted text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                <tr>
+                  <th class="px-6 py-4">Article Title</th>
+                  <th class="px-6 py-4">Category</th>
+                  <th class="px-6 py-4">Author</th>
+                  <th class="px-6 py-4">Status</th>
+                  <th class="px-6 py-4">Views</th>
+                  <th class="px-6 py-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border">
+                <tr class="hover:bg-muted/50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded overflow-hidden shrink-0">
+                        <img src="https://uxmagic.blob.core.windows.net/public/agent-images/hero-news-1780522445680-rdxku7bpb6.png" class="w-full h-full object-cover">
+                      </div>
+                      <span class="text-sm font-bold text-secondary truncate max-w-xs">Government Announces New Digital Education Framework...</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-muted-foreground">Education</td>
+                  <td class="px-6 py-4 text-sm text-muted-foreground">Sayedul Islam</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded uppercase">Published</span>
+                  </td>
+                  <td class="px-6 py-4 text-sm font-medium">12,450</td>
+                  <td class="px-6 py-4 text-right">
+                    <div class="flex justify-end gap-2">
+                      <button class="p-2 hover:bg-muted rounded text-muted-foreground transition-colors"><iconify-icon icon="lucide:eye"></iconify-icon></button>
+                      <button class="p-2 hover:bg-muted rounded text-muted-foreground transition-colors"><iconify-icon icon="lucide:pencil"></iconify-icon></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-muted/50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded overflow-hidden shrink-0">
+                        <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                      </div>
+                      <span class="text-sm font-bold text-secondary truncate max-w-xs">Stock market sees massive surge after policy update...</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-muted-foreground">Economy</td>
+                  <td class="px-6 py-4 text-sm text-muted-foreground">Rafiq Ahmed</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2 py-1 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded uppercase">Published</span>
+                  </td>
+                  <td class="px-6 py-4 text-sm font-medium">8,210</td>
+                  <td class="px-6 py-4 text-right">
+                    <div class="flex justify-end gap-2">
+                      <button class="p-2 hover:bg-muted rounded text-muted-foreground transition-colors"><iconify-icon icon="lucide:eye"></iconify-icon></button>
+                      <button class="p-2 hover:bg-muted rounded text-muted-foreground transition-colors"><iconify-icon icon="lucide:pencil"></iconify-icon></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-muted/50 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded overflow-hidden shrink-0 bg-muted flex items-center justify-center text-muted-foreground">
+                        <iconify-icon icon="lucide:image"></iconify-icon>
+                      </div>
+                      <span class="text-sm font-bold text-secondary truncate max-w-xs">Upcoming Sports Events in June: Full Schedule...</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 text-sm text-muted-foreground">Sports</td>
+                  <td class="px-6 py-4 text-sm text-muted-foreground">Tania Sultana</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2 py-1 bg-amber-100 text-amber-700 text-[10px] font-bold rounded uppercase">Draft</span>
+                  </td>
+                  <td class="px-6 py-4 text-sm font-medium">0</td>
+                  <td class="px-6 py-4 text-right">
+                    <div class="flex justify-end gap-2">
+                      <button class="p-2 hover:bg-muted rounded text-muted-foreground transition-colors"><iconify-icon icon="lucide:eye"></iconify-icon></button>
+                      <button class="p-2 hover:bg-muted rounded text-muted-foreground transition-colors"><iconify-icon icon="lucide:pencil"></iconify-icon></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</body></html>

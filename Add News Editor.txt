@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root { --ring: #006A4E;
+        --input: #E2E8F0;
+        --primary-foreground: #FFFFFF;
+        --border: #E2E8F0;
+        --radius: 0.25rem;
+        --muted-foreground: #64748B;
+        --muted: #F8FAFC;
+        --secondary: #0F172A;
+        --background: #FFFFFF;
+        --primary: #006A4E;
+        --secondary-foreground: #FFFFFF;
+        --card: #FFFFFF;
+        --tertiary: #006A4E;
+        --foreground: #0F172A; }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-muted flex flex-col relative font-sans">
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar (Admin) -->
+    <aside class="w-64 bg-secondary text-secondary-foreground flex flex-col shrink-0">
+      <div class="p-6 flex items-center gap-3 border-b border-white/10">
+        <div class="bg-primary p-2 rounded shadow-lg shadow-primary/20">
+          <iconify-icon icon="lucide:sun" class="text-xl text-white"></iconify-icon>
+        </div>
+        <div class="flex flex-col -space-y-1">
+          <span class="font-heading font-bold text-lg tracking-tight text-white">TRC <span class="text-primary">ADMIN</span></span>
+          <span class="text-[8px] font-bold text-primary/80 uppercase tracking-widest">অ্যাডমিন প্যানেল</span>
+        </div>
+      </div>
+      <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-lg text-sm font-bold transition-all">
+          <iconify-icon icon="lucide:layout-dashboard" class="text-lg"></iconify-icon>
+          ড্যাশবোর্ড (Dashboard)
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20">
+          <iconify-icon icon="lucide:file-text" class="text-lg"></iconify-icon>
+          সংবাদ (Articles)
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-lg text-sm font-bold transition-all">
+          <iconify-icon icon="lucide:layers" class="text-lg"></iconify-icon>
+          বিভাগসমূহ (Categories)
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-lg text-sm font-bold transition-all">
+          <iconify-icon icon="lucide:tag" class="text-lg"></iconify-icon>
+          ট্যাগসমূহ (Tags)
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-lg text-sm font-bold transition-all">
+          <iconify-icon icon="lucide:image" class="text-lg"></iconify-icon>
+          মিডিয়া (Media Library)
+        </a>
+        <div class="h-px bg-white/10 my-4 mx-2"></div>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-muted-foreground hover:bg-white/5 hover:text-white rounded-lg text-sm font-bold transition-all">
+          <iconify-icon icon="lucide:settings" class="text-lg"></iconify-icon>
+          সেটিংস (Settings)
+        </a>
+      </nav>
+      <div class="p-4 bg-white/5 m-4 rounded-xl border border-white/10">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-8 h-8 rounded-full border border-primary/50" alt="Admin">
+          <div class="overflow-hidden">
+            <p class="text-xs font-bold text-white truncate">Sayedul Islam</p>
+            <p class="text-[10px] text-muted-foreground uppercase">Chief Editor</p>
+          </div>
+        </div>
+        <button class="w-full py-1.5 bg-white/10 hover:bg-white/20 rounded text-[10px] font-bold transition-colors">LOGOUT</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col overflow-hidden bg-white">
+      <!-- Editor Header -->
+      <header class="h-16 border-b border-border flex items-center justify-between px-8 shrink-0 bg-white/80 backdrop-blur-md z-20">
+        <div class="flex items-center gap-4">
+          <button class="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-secondary hover:bg-muted rounded-full transition-all"><iconify-icon icon="lucide:arrow-left" class="text-xl"></iconify-icon></button>
+          <div class="flex flex-col -space-y-1">
+            <h2 class="text-lg font-heading font-bold text-secondary">নতুন সংবাদ যোগ করুন</h2>
+            <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Add New Article</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="px-5 py-2.5 border border-border rounded-lg text-xs font-bold text-secondary hover:bg-muted transition-all">খসড়া (Draft)</button>
+          <button class="px-5 py-2.5 border border-border rounded-lg text-xs font-bold text-secondary hover:bg-muted transition-all">প্রিভিউ</button>
+          <button class="px-8 py-2.5 bg-primary text-white rounded-lg font-bold text-xs hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">প্রকাশ করুন (Publish)</button>
+        </div>
+      </header>
+
+      <!-- Editor Workspace -->
+      <div class="flex-1 flex overflow-hidden">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto p-12 bg-muted/20">
+          <div class="max-w-4xl mx-auto space-y-8">
+            <!-- Language Toggle for Content -->
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Content Language:</span>
+              <div class="flex bg-white rounded-lg p-1 border border-border shadow-sm">
+                <button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-md">বাংলা</button>
+                <button class="px-4 py-1.5 hover:bg-muted text-secondary text-xs font-bold rounded-md transition-all">English</button>
+              </div>
+            </div>
+
+            <!-- Title Input -->
+            <textarea placeholder="সংবাদের শিরোনাম লিখুন... (Enter article headline)" class="w-full bg-transparent border-none text-4xl font-heading font-black text-secondary placeholder:text-muted-foreground/30 focus:ring-0 resize-none leading-tight min-h-[120px]"></textarea>
+            
+            <!-- Editor Toolbar -->
+            <div class="sticky top-0 bg-white/90 backdrop-blur-md border border-border rounded-xl shadow-xl p-3 flex items-center gap-2 z-30">
+              <div class="flex items-center gap-1">
+                <button class="p-2.5 hover:bg-muted rounded-lg text-secondary transition-all"><iconify-icon icon="lucide:bold"></iconify-icon></button>
+                <button class="p-2.5 hover:bg-muted rounded-lg text-secondary transition-all"><iconify-icon icon="lucide:italic"></iconify-icon></button>
+                <button class="p-2.5 hover:bg-muted rounded-lg text-secondary transition-all"><iconify-icon icon="lucide:link"></iconify-icon></button>
+              </div>
+              <div class="w-px h-8 bg-border mx-2"></div>
+              <div class="flex items-center gap-1">
+                <button class="p-2.5 hover:bg-muted rounded-lg text-secondary transition-all"><iconify-icon icon="lucide:list"></iconify-icon></button>
+                <button class="p-2.5 hover:bg-muted rounded-lg text-secondary transition-all"><iconify-icon icon="lucide:list-ordered"></iconify-icon></button>
+              </div>
+              <div class="w-px h-8 bg-border mx-2"></div>
+              <div class="flex items-center gap-2">
+                <button class="px-4 py-2 bg-muted hover:bg-primary hover:text-white rounded-lg text-secondary text-xs font-bold transition-all flex items-center gap-2">
+                  <iconify-icon icon="lucide:image" class="text-lg"></iconify-icon> মিডিয়া যোগ করুন
+                </button>
+                <button class="px-4 py-2 bg-muted hover:bg-primary hover:text-white rounded-lg text-secondary text-xs font-bold transition-all flex items-center gap-2">
+                  <iconify-icon icon="lucide:move" class="text-lg"></iconify-icon> লেআউট
+                </button>
+              </div>
+              <div class="ml-auto flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="text-[8px] font-bold text-muted-foreground uppercase leading-none">শব্দ সংখ্যা</span>
+                  <span class="text-xs font-bold text-primary">৫৪২</span>
+                </div>
+                <button class="p-2.5 hover:bg-muted rounded-lg text-secondary transition-all"><iconify-icon icon="lucide:maximize" class="text-lg"></iconify-icon></button>
+              </div>
+            </div>
+
+            <!-- Rich Text Body -->
+            <div class="min-h-[600px] text-xl leading-relaxed text-secondary focus:outline-none bg-white p-10 rounded-2xl shadow-sm border border-border/50" contenteditable="true">
+              <p>আপনার সংবাদ এখানে লিখতে শুরু করুন...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (Publish Settings) -->
+        <aside class="w-80 border-l border-border bg-white overflow-y-auto p-8 space-y-10 z-10">
+          <!-- Status & Visibility -->
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] border-b border-border pb-3">সেটিংস (Settings)</h3>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-muted-foreground flex items-center gap-2 font-bold"><iconify-icon icon="lucide:eye" class="text-primary"></iconify-icon> দৃশ্যমানতা</span>
+                <span class="font-bold text-secondary bg-muted px-3 py-1 rounded-md cursor-pointer hover:bg-primary/10 hover:text-primary transition-all">পাবলিক</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-muted-foreground flex items-center gap-2 font-bold"><iconify-icon icon="lucide:calendar" class="text-primary"></iconify-icon> প্রকাশ কাল</span>
+                <span class="font-bold text-secondary bg-muted px-3 py-1 rounded-md cursor-pointer hover:bg-primary/10 hover:text-primary transition-all">অবিলম্বে</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-muted-foreground flex items-center gap-2 font-bold"><iconify-icon icon="lucide:user" class="text-primary"></iconify-icon> লেখক</span>
+                <span class="font-bold text-secondary bg-muted px-3 py-1 rounded-md cursor-pointer hover:bg-primary/10 hover:text-primary transition-all">সাইদুল ইসলাম</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] border-b border-border pb-3">বিভাগসমূহ (Categories)</h3>
+            <div class="max-h-48 overflow-y-auto space-y-3 pr-2 custom-scrollbar">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <div class="relative flex items-center">
+                  <input type="checkbox" class="w-5 h-5 rounded border-border text-primary focus:ring-primary cursor-pointer">
+                </div>
+                <span class="text-sm font-bold text-secondary group-hover:text-primary transition-colors">রাজনীতি (Politics)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded border-border text-primary focus:ring-primary cursor-pointer" checked>
+                <span class="text-sm font-bold text-secondary group-hover:text-primary transition-colors">শিক্ষা (Education)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded border-border text-primary focus:ring-primary cursor-pointer" checked>
+                <span class="text-sm font-bold text-secondary group-hover:text-primary transition-colors">ক্যাম্পাস (Campus News)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 rounded border-border text-primary focus:ring-primary cursor-pointer">
+                <span class="text-sm font-bold text-secondary group-hover:text-primary transition-colors">প্রযুক্তি (Technology)</span>
+              </label>
+            </div>
+            <button class="text-xs font-bold text-primary hover:bg-primary/5 px-3 py-2 rounded-lg transition-all flex items-center gap-2 w-full border border-dashed border-primary/30">
+              <iconify-icon icon="lucide:plus-circle"></iconify-icon> নতুন বিভাগ যোগ করুন
+            </button>
+          </div>
+
+          <!-- Featured Image -->
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] border-b border-border pb-3">ফিচার্ড ইমেজ</h3>
+            <div class="aspect-video bg-muted border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary/5 hover:border-primary/50 transition-all group overflow-hidden relative">
+              <iconify-icon icon="lucide:image-plus" class="text-4xl text-muted-foreground group-hover:text-primary transition-all mb-2"></iconify-icon>
+              <span class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">ছবি আপলোড করুন</span>
+              <p class="text-[8px] text-muted-foreground mt-2 px-6 text-center">প্রস্তাবিত সাইজ: ১২০০x৬৭৫ পিক্সেল</p>
+            </div>
+          </div>
+
+          <!-- SEO Settings -->
+          <div class="space-y-6">
+            <h3 class="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em] border-b border-border pb-3">এসইও সেটিংস (SEO)</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="text-[10px] font-bold text-muted-foreground uppercase block mb-2">পারমালিঙ্ক (Permalink)</label>
+                <div class="bg-muted p-2 rounded-lg border border-border text-[10px] text-muted-foreground break-all">
+                  therisingcampus.com/news/<span class="text-primary font-bold">digital-education-framework</span>
+                </div>
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-muted-foreground uppercase block mb-2">মেটা বিবরণ (Meta Description)</label>
+                <textarea class="w-full bg-muted border border-border rounded-xl p-3 text-xs focus:ring-1 focus:ring-primary outline-none h-24 placeholder:text-muted-foreground/50" placeholder="সার্চ ইঞ্জিনের জন্য সংক্ষিপ্ত সারসংক্ষেপ লিখুন..."></textarea>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+</body></html>

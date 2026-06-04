@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root { --ring: #006A4E;
+        --input: #E2E8F0;
+        --primary-foreground: #FFFFFF;
+        --border: #E2E8F0;
+        --radius: 0.25rem;
+        --muted-foreground: #64748B;
+        --muted: #F8FAFC;
+        --secondary: #0F172A;
+        --background: #FFFFFF;
+        --primary: #006A4E;
+        --secondary-foreground: #FFFFFF;
+        --card: #FFFFFF;
+        --tertiary: #006A4E;
+        --foreground: #0F172A; }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background flex flex-col relative font-sans">
+  <!-- Top Header -->
+  <header class="border-b border-border bg-white sticky top-0 z-50">
+    <div class="bg-secondary text-secondary-foreground py-1">
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs">
+        <div class="flex items-center gap-4">
+          <span><iconify-icon icon="lucide:calendar" class="inline mr-1"></iconify-icon> সোমবার, মে ২২, ২০২৪ | Monday, May 22, 2024</span>
+          <span class="hidden md:inline">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <!-- Language Switcher -->
+          <div class="flex items-center bg-white/10 rounded overflow-hidden border border-white/20">
+            <button class="px-3 py-1 bg-primary text-white font-bold">বাংলা</button>
+            <button class="px-3 py-1 hover:bg-white/10 transition-colors">English</button>
+          </div>
+          <div class="flex items-center gap-2 border-l border-white/20 pl-4 ml-2">
+            <iconify-icon icon="lucide:facebook" class="text-sm cursor-pointer hover:text-primary"></iconify-icon>
+            <iconify-icon icon="lucide:twitter" class="text-sm cursor-pointer hover:text-primary"></iconify-icon>
+            <iconify-icon icon="lucide:youtube" class="text-sm cursor-pointer hover:text-primary"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Middle Header: Logo & Ad -->
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4">
+        <div class="bg-primary p-2.5 rounded shadow-lg shadow-primary/20">
+          <iconify-icon icon="lucide:sun" class="text-4xl text-white"></iconify-icon>
+        </div>
+        <div>
+          <div class="flex items-baseline gap-2">
+            <h1 class="text-3xl font-heading font-bold tracking-tight text-secondary">THE RISING <span class="text-primary">CAMPUS</span></h1>
+          </div>
+          <h2 class="text-xl font-heading font-bold text-secondary/80 -mt-1">দ্য রাইজিং ক্যাম্পাস</h2>
+          <p class="text-[10px] uppercase tracking-widest text-muted-foreground font-bold mt-1">সত্যের সন্ধানে নির্ভীক • Digital News Portal</p>
+        </div>
+      </div>
+      <div class="hidden lg:block w-[728px] h-[90px] bg-muted border border-dashed border-border flex items-center justify-center text-muted-foreground text-sm rounded">
+        Leaderboard Advertisement (728x90)
+      </div>
+    </div>
+
+    <!-- Bottom Header: Navigation -->
+    <nav class="border-t border-border bg-white shadow-sm hidden md:block">
+      <div class="max-w-7xl mx-auto px-4">
+        <ul class="flex items-center gap-6 overflow-x-auto py-3 text-sm font-bold text-secondary">
+          <li class="text-primary border-b-2 border-primary pb-3 -mb-3 flex items-center gap-1.5">
+            <iconify-icon icon="lucide:house"></iconify-icon>
+            <span>প্রচ্ছদ (Home)</span>
+          </li>
+          <li class="hover:text-primary cursor-pointer transition-colors">রাজনীতি (Politics)</li>
+          <li class="hover:text-primary cursor-pointer transition-colors">ক্যাম্পাস (Campus)</li>
+          <li class="hover:text-primary cursor-pointer transition-colors">জাতীয় (National)</li>
+          <li class="hover:text-primary cursor-pointer transition-colors">আন্তর্জাতিক (International)</li>
+          <li class="hover:text-primary cursor-pointer transition-colors">অর্থনীতি (Economy)</li>
+          <li class="hover:text-primary cursor-pointer transition-colors">খেলাধুলা (Sports)</li>
+          <li class="hover:text-primary cursor-pointer transition-colors">বিনোদন (Entertainment)</li>
+          <li class="ml-auto flex items-center gap-4">
+            <button class="p-2 hover:bg-muted rounded-full transition-colors" title="Search (Cmd+K)">
+              <iconify-icon icon="lucide:search" class="text-xl"></iconify-icon>
+            </button>
+            <button class="p-2 hover:bg-muted rounded-full transition-colors">
+              <iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breaking News Ticker -->
+  <div class="bg-muted border-b border-border py-2.5">
+    <div class="max-w-7xl mx-auto px-4 flex items-center gap-4">
+      <span class="bg-destructive text-white text-[10px] font-bold px-2.5 py-1 rounded flex items-center gap-1.5 shrink-0">
+        <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> ব্রেকিং নিউজ
+      </span>
+      <div class="text-sm font-semibold text-secondary truncate flex items-center gap-3">
+        <span class="text-primary">|</span>
+        বিশ্ববিদ্যালয় ভর্তি পরীক্ষার তারিখ ঘোষণা: আগামী অক্টোবর থেকে শুরু হচ্ছে ২০২৪-২৫ শিক্ষাবর্ষের ভর্তি পরীক্ষা...
+      </div>
+      <div class="ml-auto flex gap-2">
+        <button class="p-1.5 hover:bg-white rounded border border-transparent hover:border-border transition-all"><iconify-icon icon="lucide:arrow-left"></iconify-icon></button>
+        <button class="p-1.5 hover:bg-white rounded border border-transparent hover:border-border transition-all"><iconify-icon icon="lucide:arrow-right"></iconify-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Main Content Area -->
+      <div class="lg:col-span-9 space-y-12">
+        
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="md:col-span-2 lg:col-span-1">
+            <div class="group cursor-pointer">
+              <div class="relative overflow-hidden rounded-lg aspect-video mb-5 shadow-sm">
+                <img src="https://uxmagic.blob.core.windows.net/public/agent-images/hero-news-1780522445680-rdxku7bpb6.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Hero News">
+                <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-sm shadow-lg">শীর্ষ সংবাদ</div>
+              </div>
+              <h2 class="text-3xl font-heading font-bold leading-tight group-hover:text-primary transition-colors mb-4">উচ্চশিক্ষা প্রতিষ্ঠানে নতুন ডিজিটাল ফ্রেমওয়ার্ক ঘোষণা সরকারের</h2>
+              <p class="text-muted-foreground text-sm leading-relaxed line-clamp-3 mb-5">শিক্ষা মন্ত্রণালয় ২০২৬ সালের মধ্যে ৫০টিরও বেশি পাবলিক বিশ্ববিদ্যালয়কে ডিজিটালাইজ করার একটি বিস্তৃত রোডম্যাপ উন্মোচন করেছে। এতে হাই-স্পিড কানেক্টিভিটি এবং এআই-চালিত গবেষণা কেন্দ্রের ওপর গুরুত্ব দেওয়া হয়েছে...</p>
+              <div class="flex items-center gap-4 text-xs font-bold">
+                <span class="text-primary px-2 py-0.5 bg-primary/10 rounded">শিক্ষা</span>
+                <span class="text-muted-foreground">•</span>
+                <span class="text-muted-foreground flex items-center gap-1"><iconify-icon icon="lucide:clock" class="text-sm"></iconify-icon> ২ ঘণ্টা আগে</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4 group cursor-pointer pb-6 border-b border-border last:border-0 last:pb-0">
+              <div class="w-36 h-24 shrink-0 overflow-hidden rounded border border-border shadow-sm">
+                <img src="https://uxmagic.blob.core.windows.net/public/agent-images/tech-news-1780522463585-hgk0mmntw1k.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="News">
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-lg leading-tight group-hover:text-primary transition-colors mb-2">স্টার্টআপ সামিট ২০২৪: ১০টি দেশীয় উদ্যোগে বিনিয়োগের ঘোষণা</h3>
+                <div class="text-[10px] text-muted-foreground uppercase font-bold tracking-wider flex items-center gap-2">
+                  <span class="text-primary">প্রযুক্তি</span>
+                  <span>•</span>
+                  <span>৪ ঘণ্টা আগে</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-4 group cursor-pointer pb-6 border-b border-border last:border-0 last:pb-0">
+              <div class="w-36 h-24 shrink-0 overflow-hidden rounded border border-border shadow-sm">
+                <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="News">
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-lg leading-tight group-hover:text-primary transition-colors mb-2">বৈদেশিক মুদ্রার রিজার্ভে ইতিবাচক ধারা, দ্বিতীয় প্রান্তিকে স্থিতিশীলতা</h3>
+                <div class="text-[10px] text-muted-foreground uppercase font-bold tracking-wider flex items-center gap-2">
+                  <span class="text-primary">অর্থনীতি</span>
+                  <span>•</span>
+                  <span>৬ ঘণ্টা আগে</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-4 group cursor-pointer">
+              <div class="w-36 h-24 shrink-0 overflow-hidden rounded border border-border shadow-sm">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="News">
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-lg leading-tight group-hover:text-primary transition-colors mb-2">আইসিসি চ্যাম্পিয়নশিপে অংশ নিতে দেশ ছাড়ল জাতীয় ক্রিকেট দল</h3>
+                <div class="text-[10px] text-muted-foreground uppercase font-bold tracking-wider flex items-center gap-2">
+                  <span class="text-primary">খেলাধুলা</span>
+                  <span>•</span>
+                  <span>৮ ঘণ্টা আগে</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Regional News (Sara Desh) -->
+        <section class="space-y-6 pt-4">
+          <div class="flex flex-col md:flex-row md:items-center justify-between border-b-2 border-primary/20 pb-4 gap-4">
+            <h2 class="text-xl font-heading font-bold flex items-center gap-2 text-secondary">
+              <iconify-icon icon="lucide:map-pin" class="text-primary"></iconify-icon>
+              সারা দেশ (Regional News)
+            </h2>
+            <div class="flex items-center gap-2 bg-muted p-1 rounded-lg">
+              <select class="bg-transparent border-none text-xs font-bold px-4 py-2 focus:ring-0 cursor-pointer">
+                <option>বিভাগ (Division)</option>
+                <option>ঢাকা</option>
+                <option>চট্টগ্রাম</option>
+                <option>সিলেট</option>
+                <option>রাজশাহী</option>
+              </select>
+              <div class="w-px h-4 bg-border"></div>
+              <select class="bg-transparent border-none text-xs font-bold px-4 py-2 focus:ring-0 cursor-pointer">
+                <option>জেলা (District)</option>
+              </select>
+              <button class="bg-primary text-white p-2 rounded-md hover:bg-primary/90 transition-colors shadow-sm">
+                <iconify-icon icon="lucide:search"></iconify-icon>
+              </button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group cursor-pointer">
+              <div class="aspect-video rounded-lg overflow-hidden mb-4 border border-border shadow-sm">
+                <img src="https://uxmagic.blob.core.windows.net/public/agent-images/regional-news-1780522454670-1x9qpvc2qz6.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Regional">
+              </div>
+              <h4 class="font-bold text-base leading-snug group-hover:text-primary transition-colors">সিলেটে বন্যা পরিস্থিতির অবনতি: নদ-নদীর পানি বিপৎসীমার উপরে</h4>
+              <div class="flex items-center gap-2 mt-2 text-[10px] text-muted-foreground font-bold uppercase">
+                <span class="text-primary">সিলেট</span>
+                <span>•</span>
+                <span>১ ঘণ্টা আগে</span>
+              </div>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="aspect-video rounded-lg overflow-hidden mb-4 border border-border shadow-sm">
+                <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Regional">
+              </div>
+              <h4 class="font-bold text-base leading-snug group-hover:text-primary transition-colors">রাজশাহীতে আমের বাম্পার ফলনের আশা করছেন চাষিরা</h4>
+              <div class="flex items-center gap-2 mt-2 text-[10px] text-muted-foreground font-bold uppercase">
+                <span class="text-primary">রাজশাহী</span>
+                <span>•</span>
+                <span>৩ ঘণ্টা আগে</span>
+              </div>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="aspect-video rounded-lg overflow-hidden mb-4 border border-border shadow-sm">
+                <img src="https://images.unsplash.com/photo-1623039405147-547794f92e9e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Regional">
+              </div>
+              <h4 class="font-bold text-base leading-snug group-hover:text-primary transition-colors">সাপ্তাহিক ছুটির আগে কক্সবাজার সৈকতে পর্যটকদের উপচে পড়া ভিড়</h4>
+              <div class="flex items-center gap-2 mt-2 text-[10px] text-muted-foreground font-bold uppercase">
+                <span class="text-primary">চট্টগ্রাম</span>
+                <span>•</span>
+                <span>৫ ঘণ্টা আগে</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-3 space-y-10">
+        <!-- Latest News Sidebar -->
+        <section class="bg-white rounded-xl border border-border shadow-sm overflow-hidden">
+          <div class="bg-secondary p-4 flex items-center justify-between">
+            <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-white">সর্বশেষ সংবাদ (Latest)</h3>
+            <iconify-icon icon="lucide:zap" class="text-primary animate-pulse"></iconify-icon>
+          </div>
+          <div class="p-4 space-y-5">
+            <div class="group cursor-pointer flex gap-4 items-start pb-4 border-b border-border/50 last:border-0 last:pb-0">
+              <span class="text-2xl font-heading font-black text-primary/20 group-hover:text-primary/40 transition-colors">০১</span>
+              <p class="text-sm font-bold leading-tight group-hover:text-primary transition-colors">প্রাথমিক বিদ্যালয়ের শিক্ষক নিয়োগ পরীক্ষার ফলাফল প্রকাশিত</p>
+            </div>
+            <div class="group cursor-pointer flex gap-4 items-start pb-4 border-b border-border/50 last:border-0 last:pb-0">
+              <span class="text-2xl font-heading font-black text-primary/20 group-hover:text-primary/40 transition-colors">০২</span>
+              <p class="text-sm font-bold leading-tight group-hover:text-primary transition-colors">আগামী সপ্তাহ থেকে মধ্যরাত পর্যন্ত চলবে মেট্রোরেল</p>
+            </div>
+            <div class="group cursor-pointer flex gap-4 items-start pb-4 border-b border-border/50 last:border-0 last:pb-0">
+              <span class="text-2xl font-heading font-black text-primary/20 group-hover:text-primary/40 transition-colors">০৩</span>
+              <p class="text-sm font-bold leading-tight group-hover:text-primary transition-colors">স্টেম শিক্ষার্থীদের জন্য নতুন স্কলারশিপ প্রোগ্রাম ঘোষণা</p>
+            </div>
+            <div class="group cursor-pointer flex gap-4 items-start">
+              <span class="text-2xl font-heading font-black text-primary/20 group-hover:text-primary/40 transition-colors">০৪</span>
+              <p class="text-sm font-bold leading-tight group-hover:text-primary transition-colors">আবহাওয়ার সতর্কবার্তা: উপকূলীয় এলাকায় ভারী বৃষ্টির সম্ভাবনা</p>
+            </div>
+          </div>
+          <a href="#" class="block w-full py-3 bg-muted text-[10px] font-bold text-center text-primary hover:bg-primary/5 transition-colors uppercase tracking-widest border-t border-border">সকল সংবাদ দেখুন</a>
+        </section>
+
+        <!-- Sidebar Ad -->
+        <div class="w-full aspect-square bg-muted border border-dashed border-border flex items-center justify-center text-muted-foreground text-xs text-center p-4 rounded-lg">
+          Square Advertisement<br>(300x300)
+        </div>
+
+        <!-- Online Voting (Static Component) -->
+        <section class="bg-muted rounded-xl p-6 border border-border shadow-sm">
+          <h3 class="font-heading font-bold text-sm mb-4 flex items-center gap-2 text-secondary">
+            <iconify-icon icon="lucide:bar-chart-2" class="text-primary"></iconify-icon>
+            অনলাইন জরিপ (Online Poll)
+          </h3>
+          <p class="text-sm font-bold mb-5 text-secondary/80">আপনি কি নতুন প্রস্তাবিত ডিজিটাল শিক্ষা নীতি সমর্থন করেন?</p>
+          <div class="space-y-3">
+            <button class="w-full py-2.5 px-4 bg-white border border-border rounded-lg text-sm font-bold hover:border-primary hover:text-primary transition-all text-left flex justify-between items-center group">
+              হ্যাঁ (Yes) <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px]">৬৮%</span>
+            </button>
+            <button class="w-full py-2.5 px-4 bg-white border border-border rounded-lg text-sm font-bold hover:border-primary hover:text-primary transition-all text-left flex justify-between items-center group">
+              না (No) <span class="bg-muted text-muted-foreground px-2 py-0.5 rounded text-[10px]">২৪%</span>
+            </button>
+            <button class="w-full py-2.5 px-4 bg-white border border-border rounded-lg text-sm font-bold hover:border-primary hover:text-primary transition-all text-left flex justify-between items-center group">
+              মন্তব্য নেই <span class="bg-muted text-muted-foreground px-2 py-0.5 rounded text-[10px]">৮%</span>
+            </button>
+          </div>
+          <div class="mt-5 pt-4 border-t border-border/50 flex justify-between items-center text-[10px] text-muted-foreground font-bold">
+            <span>মোট ভোট: ১২,৪৫০</span>
+            <button class="text-primary hover:underline">ফলাফল দেখুন</button>
+          </div>
+        </section>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-secondary-foreground pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="bg-primary p-2.5 rounded shadow-lg shadow-primary/20">
+              <iconify-icon icon="lucide:sun" class="text-3xl text-white"></iconify-icon>
+            </div>
+            <div>
+              <h2 class="text-xl font-heading font-bold tracking-tight">THE RISING <span class="text-primary">CAMPUS</span></h2>
+              <p class="text-[10px] font-bold text-primary/80">দ্য রাইজিং ক্যাম্পাস</p>
+            </div>
+          </div>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            ক্যাম্পাস জীবন, জাতীয় বিষয় এবং আন্তর্জাতিক উন্নয়নের নির্ভরযোগ্য এবং আপ-টু-দ্য-মিনিট কভারেজ প্রদানকারী শীর্ষস্থানীয় ডিজিটাল নিউজ পোর্টাল।
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+              <iconify-icon icon="lucide:facebook" class="text-lg"></iconify-icon>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+              <iconify-icon icon="lucide:twitter" class="text-lg"></iconify-icon>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all">
+              <iconify-icon icon="lucide:youtube" class="text-lg"></iconify-icon>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-heading font-bold mb-8 text-sm uppercase tracking-widest text-primary border-b border-white/10 pb-2 inline-block">বিভাগসমূহ (Categories)</h4>
+          <ul class="space-y-4 text-sm text-muted-foreground">
+            <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> জাতীয় সংবাদ (National)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> ক্যাম্পাস আপডেট (Campus)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> অর্থনীতি ও বাণিজ্য (Economy)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> খেলাধুলা (Sports)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> প্রযুক্তি (Technology)</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-heading font-bold mb-8 text-sm uppercase tracking-widest text-primary border-b border-white/10 pb-2 inline-block">তথ্য (Information)</h4>
+          <ul class="space-y-4 text-sm text-muted-foreground">
+            <li><a href="#" class="hover:text-white transition-colors">আমাদের সম্পর্কে (About Us)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">যোগাযোগ (Contact Us)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">গোপনীয়তা নীতি (Privacy)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">বিজ্ঞাপন (Advertisement)</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">আর্কাইভ (Archive)</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-heading font-bold mb-8 text-sm uppercase tracking-widest text-primary border-b border-white/10 pb-2 inline-block">অ্যাপ ডাউনলোড করুন</h4>
+          <p class="text-sm text-muted-foreground mb-8">সরাসরি আপনার মোবাইলে সর্বশেষ খবর পেতে আমাদের অ্যাপ ডাউনলোড করুন।</p>
+          <div class="space-y-4">
+            <button class="w-full py-3 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 transition-all">
+              <iconify-icon icon="lucide:smartphone" class="text-xl text-primary"></iconify-icon>
+              <div class="text-left">
+                <p class="text-[8px] uppercase font-bold text-muted-foreground leading-none">Download on the</p>
+                <p class="text-xs font-bold">App Store</p>
+              </div>
+            </button>
+            <button class="w-full py-3 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 transition-all">
+              <iconify-icon icon="lucide:smartphone" class="text-xl text-primary"></iconify-icon>
+              <div class="text-left">
+                <p class="text-[8px] uppercase font-bold text-muted-foreground leading-none">Get it on</p>
+                <p class="text-xs font-bold">Google Play</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+        <p>© ২০২৪ দ্য রাইজিং ক্যাম্পাস। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>সম্পাদক ও প্রকাশক: মো. সাইদুল ইসলাম</p>
+        <p>সরকারি নিবন্ধন নং: ১২৩৪৫/এবিসি</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border z-50 px-6 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+    <ul class="flex justify-between items-center">
+      <li class="flex flex-col items-center gap-1 text-primary">
+        <iconify-icon icon="lucide:house" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold">প্রচ্ছদ</span>
+      </li>
+      <li class="flex flex-col items-center gap-1 text-muted-foreground">
+        <iconify-icon icon="lucide:clock" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold">সর্বশেষ</span>
+      </li>
+      <li class="flex flex-col items-center gap-1 text-muted-foreground">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center -mt-8 shadow-lg shadow-primary/30 border-4 border-white">
+          <iconify-icon icon="lucide:grid-3x3" class="text-2xl text-white"></iconify-icon>
+        </div>
+        <span class="text-[10px] font-bold mt-1">বিভাগ</span>
+      </li>
+      <li class="flex flex-col items-center gap-1 text-muted-foreground">
+        <iconify-icon icon="lucide:bookmark" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold">সংরক্ষিত</span>
+      </li>
+      <li class="flex flex-col items-center gap-1 text-muted-foreground">
+        <iconify-icon icon="lucide:user" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold">প্রোফাইল</span>
+      </li>
+    </ul>
+  </nav>
+</div>
+</body></html>
